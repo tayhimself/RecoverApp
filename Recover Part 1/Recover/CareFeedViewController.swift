@@ -34,8 +34,7 @@ import ResearchKit
 import UIKit
 import os.log
 
-final class CareFeedViewController: OCKDailyPageViewController,
-                                    OCKSurveyTaskViewControllerDelegate {
+final class CareFeedViewController: OCKDailyPageViewController {
 
     override func dailyPageViewController(
         _ dailyPageViewController: OCKDailyPageViewController,

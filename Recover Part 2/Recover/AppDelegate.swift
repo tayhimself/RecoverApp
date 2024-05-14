@@ -35,12 +35,8 @@ import os.log
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let storeManager = OCKSynchronizedStoreManager(
-        wrapping: OCKStore(
-            name: "com.apple.wwdc.carekitstore",
-            type: .inMemory
-        )
-    )
+    let storeManager = OCKStore(name: "com.apple.wwdc.carekitstore", type: .inMemory)
+
 
     func application(
         _ application: UIApplication,
@@ -89,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // 2.6 Add a range of motion task
 
-        storeManager.store.addAnyTasks(
+        storeManager.addAnyTasks(
             [onboardTask],
             callbackQueue: .main) { result in
 

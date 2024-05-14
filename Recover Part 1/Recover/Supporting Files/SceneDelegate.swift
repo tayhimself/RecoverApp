@@ -28,13 +28,14 @@
  */
 
 import CareKit
+import CareKitStore
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var storeManager: OCKSynchronizedStoreManager {
+    var storeManager: OCKStore {
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        return delegate.storeManager
+        return delegate.store
     }
 
     var window: UIWindow?
@@ -46,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-        let feed = CareFeedViewController(storeManager: appDelegate.storeManager)
+        let feed = CareFeedViewController(store: appDelegate.store)
         feed.title = "Care Feed"
         feed.tabBarItem = UITabBarItem(
             title: "Care Feed",
@@ -54,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             tag: 0
         )
 
-        let insights = InsightsViewController(storeManager: appDelegate.storeManager)
+        let insights = InsightsViewController(storeManager: appDelegate.store)
         insights.title = "Insights"
         insights.tabBarItem = UITabBarItem(
             title: "Insights",

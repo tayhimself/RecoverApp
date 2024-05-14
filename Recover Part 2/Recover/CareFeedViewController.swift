@@ -47,12 +47,7 @@ final class CareFeedViewController: OCKDailyPageViewController,
             guard isOnboarded else {
 
                 let onboardCard = OCKSurveyTaskViewController(
-                    taskID: TaskIDs.onboarding,
-                    eventQuery: OCKEventQuery(for: date),
-                    storeManager: self.storeManager,
-                    survey: Surveys.onboardingSurvey(),
-                    extractOutcome: { _ in [OCKOutcomeValue(Date())] }
-                )
+                    eventQuery: OCKEventQuery(for: date), store: self.store, survey: Surveys.onboardingSurvey(), extractOutcome: { _ in [OCKOutcomeValue(Date())] })
 
                 onboardCard.surveyDelegate = self
 
@@ -73,7 +68,7 @@ final class CareFeedViewController: OCKDailyPageViewController,
         var query = OCKOutcomeQuery()
         query.taskIDs = [TaskIDs.onboarding]
 
-        storeManager.store.fetchAnyOutcomes(
+        store.fetchAnyOutcomes(
             query: query,
             callbackQueue: .main) { result in
 

@@ -30,6 +30,7 @@
 import UIKit
 import CareKit
 import CareKitUI
+import CareKitStore
 import ResearchKit
 
 final class InsightsViewController:
@@ -37,9 +38,8 @@ final class InsightsViewController:
     OCKFeaturedContentViewDelegate,
     ORKTaskViewControllerDelegate {
 
-    let storeManager: OCKSynchronizedStoreManager
-
-    init(storeManager: OCKSynchronizedStoreManager) {
+    let storeManager: OCKStore
+    init(storeManager: OCKStore) {
         self.storeManager = storeManager
         super.init(nibName: nil, bundle: nil)
     }
